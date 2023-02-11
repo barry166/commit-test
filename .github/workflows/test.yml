@@ -1,13 +1,18 @@
-name: github-actions-Test
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: deploy
 on: [push]
 jobs:
-  check-bats-version:
+  Deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: appleboy/ssh-action@v0.1.6
         with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script_stop: true
+#          port: ${{ secrets.PORT }}
+          script: |
+            mkdir deploy_dist
+            touch deploy.txt
+            echo "hello deploy" >> deploy.txt
+            cat deploy.txt
