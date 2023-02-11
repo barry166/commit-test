@@ -1,0 +1,1 @@
+(()=>{var t={555:t=>{t.exports={test:()=>{console.log("test333")}}}},s={};function o(e){var r=s[e];if(void 0!==r)return r.exports;var i=s[e]={exports:{}};return t[e](i,i.exports,o),i.exports}(()=>{const{test:t}=o(555);console.log("this is slic build test111..."),t()})()})();
