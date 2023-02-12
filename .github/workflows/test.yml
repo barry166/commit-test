@@ -13,6 +13,7 @@ jobs:
 #          port: ${{ secrets.PORT }}
           script: |
             mkdir deploy_dist
+            cd deploy_dist
             touch deploy.txt
             echo "hello deploy" >> deploy.txt
             cat deploy.txt
